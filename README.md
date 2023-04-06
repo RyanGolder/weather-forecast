@@ -8,7 +8,7 @@ See below for HitHub pages link and URL of the webpage:
 - https://github.com/RyanGolder/weather-forecast
 - https://ryangolder.github.io/weather-forecast/
 
-![daily-schedule](https://user-images.githubusercontent.com/121011030/224524193-57c5f268-fac0-4a32-93e9-6da3524b41c5.png)
+![weather-forecast](https://user-images.githubusercontent.com/121011030/230365136-fdaf6a29-8e5d-43b2-bef8-c2ab95d8463f.png)
 
 ## Usage
 
