@@ -15,10 +15,40 @@ $(function () {
   let recentSearchArr = JSON.parse(localStorage.getItem("recentSearches")) || [
     "Sydney",
   ];
+
+  createRecentButtons();
+
   console.log(recentSearchArr);
 
+  function createRecentButtons() {
+    previousSearches.empty();
+    recentSearchArr.forEach((recentSearch) => {
+      const recentBtn = $(
+        "<button class='bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded'></button>"
+      );
+      recentBtn.text(recentSearch);
+      previousSearches.append(recentBtn);
+  
+      recentBtn.click(() => {
+        inputField.val(recentSearch);
+        weatherAPI(event);
+      });
+    });
+  }
+  
+  // function createRecentButtons() {
+  //   previousSearches.empty();
+  //   recentSearchArr.forEach(recentSearch => {
+  //     const recentBtn = $(
+  //       "<button class='bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded'></button>"
+  //     );
+  //     recentBtn.text(recentSearch);
+  //     previousSearches.append(recentBtn);
+  //   });
+  // }
+  
   // Function to create the previous searches button
-  function createRecentButton(recentSearch) {
+  function createRecentButton (recentSearch) {
     if (pageInit === false) {
       let firstRecentSearch = previousSearches.children().last();
 
@@ -81,15 +111,14 @@ $(function () {
   function weatherAPI(e) {
     e.preventDefault();
     let city = inputField.val();
-    let recentSearch = recentSearchArr[0];
+    let recentSearch = city;
+    createRecentButton(recentSearch);
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openWeatherAPIKey}&units=metric`
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        createRecentButton(recentSearch);
-        console.log(createRecentButton(recentSearch));
         weatherInfo.empty();
         const tempLi = document.createElement("li");
         let cityTemp = data.main.temp;
@@ -165,4 +194,18 @@ $(function () {
   // Update its text content to the current date
   currentDate.text(new Date().toLocaleDateString("en-UK", options));
   // End function
+
+  $(document).on("click", "#search-list button", function(event){
+    let buttonContent = $(this).text();
+    inputField.val(buttonContent);
+    let city = inputField.val()
+    weatherAPI(inputField.val());
+  })
+
+//   searchButton.on("click", function(event){
+//     event.preventDefault();
+//     let city = inputField.val()
+//     weatherAPI(city);
+    
+// })
 });
