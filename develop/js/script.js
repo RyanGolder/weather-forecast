@@ -24,7 +24,7 @@ $(function () {
     previousSearches.empty();
     recentSearchArr.forEach((recentSearch) => {
       const recentBtn = $(
-        "<button class='bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded'></button>"
+        "<button class='bg-gray-400 hover:bg-gray-700 text-white font-bold p-2 m-1 rounded'></button>"
       );
       recentBtn.text(recentSearch);
       previousSearches.append(recentBtn);
@@ -35,17 +35,6 @@ $(function () {
       });
     });
   }
-  
-  // function createRecentButtons() {
-  //   previousSearches.empty();
-  //   recentSearchArr.forEach(recentSearch => {
-  //     const recentBtn = $(
-  //       "<button class='bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded'></button>"
-  //     );
-  //     recentBtn.text(recentSearch);
-  //     previousSearches.append(recentBtn);
-  //   });
-  // }
   
   // Function to create the previous searches button
   function createRecentButton (recentSearch) {
@@ -58,7 +47,7 @@ $(function () {
       }
 
       const recentBtn = $(
-        "<button class='bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded'></button>"
+        "<button class='bg-gray-400 hover:bg-gray-700 text-white font-bold p-2 m-1 rounded'></button>"
       );
       recentBtn.text(recentSearch);
       previousSearches.prepend(recentBtn);
