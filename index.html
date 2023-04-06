@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700" rel="stylesheet" />
+    <title>Weather Forecast</title>
+    <link rel="icon" href="./develop/images/sun-icon.webp" type="image/icon type" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-sky-900">
+    <header class="bg-sky-500 py-4 w-full text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-white text-2xl font-bold">Weather Dashboard</h1>
+            <h2 id="currentDay" class="text-white text-xl"></h2>
+        </div>
+    </header>
+
+    <div class="flex flex-wrap">
+        <!-- Search field container -->
+        <div class="w-full md:w-1/4">
+            <div class="bg-sky-600 rounded-lg p-2 m-1" action="">
+                <h2 class="text-white font-bold text-xl p-1">Search for a city</h2>
+                <div>
+                    <input type="text" id="city" name="city" placeholder="Enter City" class="py-2 px-4 rounded-full"
+                        autocomplete="off" />
+                    <button id="submit-city"
+                        class="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                        Search
+                    </button>
+                </div>
+            </div>
+
+            <!-- Previous searches container -->
+            <div class="bg-sky-600 rounded-lg p-2 m-1">
+                <div style="height: 5px"></div>
+                <div id="previous-searches" class="">
+                    <h2 class="text-white font-bold text-xl p-2">Previous Searches:</h2>
+                    <div id="search-list" class="row row-span-5 flex flex-wrap">
+                        <!-- List of previous searches will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-3/4">
+            <div id="weather-forecast" class="bg-sky-600 rounded-lg p-2 m-1">
+                <h2 class="text-gray-200 text-xl font-bold p-2">
+                    Current weather in <span class="" id="city-name"></span>:
+                </h2>
+                <ul id="weather-info"></ul>
+                <!-- Use js to have the forecast display here -->
+            </div>
+
+            <div id="weather-forecast" class="bg-sky-600 rounded-lg p-2 m-1">
+                <h2 class="text-gray-200 text-xl font-bold p-2">
+                    Current 5-day weather forecast in
+                    <span class="" id="forecast-city-name"></span>:
+                </h2>
+                <div id="weather-info-forecast" class="w-full md:w-1/5 flex flex-row"></div>
+                <!-- Use js to have the forecast display here -->
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @media (min-width: 768px) {
+            .flex {
+                display: flex;
+            }
+
+            .flex-wrap {
+                flex-wrap: wrap;
+            }
+
+            .w-1\/2 {
+                width: 50%;
+            }
+
+            .mb-4 {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./develop/js/script.js"></script>
+</body>
+
+</html>
